@@ -1,150 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Walimatul Urus - Nur Izzati & Muhammad Nursyafiq</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  background:#cdb1b1;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
   font-family:'Playfair Display', serif;
+}
+
+.container{
+  position:relative;
+  max-width:700px;
+  width:100%;
+}
+
+.frame{
+  width:100%;
+  display:block;
+}
+
+.text-layer{
+  position:absolute;
+  top:22%;
+  left:50%;
+  transform:translateX(-50%);
   text-align:center;
-  color:#6b1d1d;
+  width:70%;
+  color:#7b1e1e;
 }
 
-/* Envelope Intro */
-#intro{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:#cdb1b1;
+.text-layer h2{
+  letter-spacing:4px;
+  font-size:18px;
+  margin-bottom:20px;
 }
 
-.envelope{
-  width:300px;
-  height:300px;
-  background:#8b0000;
-  clip-path:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-}
-
-.envelope span{
-  background:#fff;
-  padding:15px 30px;
-  font-family:'Great Vibes', cursive;
-  font-size:30px;
-  color:#1e4d2b;
-}
-
-.hidden{
-  display:none;
-}
-
-/* Main Content */
-.section{
-  padding:80px 20px;
-}
-
-h1{
+.names{
   font-family:'Great Vibes', cursive;
   font-size:48px;
-  margin:10px 0;
+  line-height:1.2;
+  margin:20px 0;
 }
 
-h2{
-  letter-spacing:3px;
+.details{
+  margin-top:20px;
   font-size:18px;
-}
-
-.card{
-  background:#f6eeee;
-  margin:0 auto;
-  padding:40px;
-  max-width:600px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  letter-spacing:2px;
 }
 
 #countdown{
-  font-size:22px;
-  margin-top:20px;
+  margin-top:25px;
   font-weight:bold;
-}
-
-.quote{
-  font-style:italic;
-  max-width:700px;
-  margin:40px auto;
-  line-height:1.6;
-}
-
-.rsvp{
-  margin-top:40px;
-  padding:15px 40px;
-  background:#8b0000;
-  color:#fff;
-  border:none;
-  font-size:18px;
-  cursor:pointer;
-  border-radius:30px;
+  font-size:16px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO SCREEN -->
-<div id="intro">
-  <h2>We're getting married!</h2>
-  <div class="envelope" onclick="openInvite()">
-    <span>You are INVITED</span>
-  </div>
-</div>
+<div class="container">
+  <img src="frame.png.png" class="frame">
 
-<!-- MAIN CONTENT -->
-<div id="mainContent" class="hidden">
-
-<div class="section">
-  <div class="card">
+  <div class="text-layer">
     <h2>WALIMATUL URUS</h2>
-    <h1>Nur Izzati<br>&<br>Muhammad Nursyafiq</h1>
-    <p>Sabtu, 13 Jun 2026</p>
-    <p>Puspanitapuri Dewan Seri Endon</p>
+
+    <div class="names">
+      Nur Izzati<br>
+      &<br>
+      Muhammad Nursyafiq
+    </div>
+
+    <div class="details">
+      SABTU, 13 JUN 2026<br>
+      PUSPANITAPURI DEWAN<br>
+      SERI ENDON
+    </div>
+
     <div id="countdown"></div>
   </div>
 </div>
 
-<div class="section">
-  <div class="quote">
-    “And one of His signs is that He created for you spouses from among yourselves so that you may find comfort in them. And He has placed between you compassion and mercy.”<br>
-    Surah Ar-Rum, verse 21.
-  </div>
-</div>
-
-<div class="section">
-  <button class="rsvp">RSVP</button>
-</div>
-
-</div>
-
 <script>
-
-/* Envelope Open */
-function openInvite(){
-  document.getElementById("intro").style.display="none";
-  document.getElementById("mainContent").classList.remove("hidden");
-}
-
-/* Countdown MYT */
 var countDownDate = new Date("June 13, 2026 08:00:00 GMT+08:00").getTime();
 
 var x = setInterval(function(){
@@ -157,15 +104,15 @@ var x = setInterval(function(){
   var seconds = Math.floor((distance % (1000*60)) / 1000);
 
   document.getElementById("countdown").innerHTML =
-    days+" Days "+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds ";
+    days+" DAYS • "+hours+" HOURS • "+minutes+" MINUTES • "+seconds+" SECONDS";
 
   if(distance < 0){
     clearInterval(x);
     document.getElementById("countdown").innerHTML = "Majlis Bermula ❤️";
   }
 },1000);
-
 </script>
 
 </body>
 </html>
+
